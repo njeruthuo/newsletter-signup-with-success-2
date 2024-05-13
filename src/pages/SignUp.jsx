@@ -9,11 +9,12 @@ const SignUp = ({ setEmail, toggleIsSubmitted }) => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const emailForm = new FormData(e.currentTarget);
-    setEmail((prevState) => {
-      return { ...prevState, email: emailForm.get("email") };
-    });
-    toggleIsSubmitted();
+    // setEmail(emailForm.get("email"));
+    // toggleIsSubmitted();
+    console.log(emailForm.get("email"));
   };
+
+  console.log(setEmail,toggleIsSubmitted);
 
   return (
     <div className="bg-white rounded-lg flex gap-2 flex-col-reverse sm:flex-row sm:min-h-0 sm:w-1/2 text-darkGrey text-xs pb-40 sm:pb-0">
@@ -48,7 +49,7 @@ const SignUp = ({ setEmail, toggleIsSubmitted }) => {
           <div className="flex justify-between">
             <p>Email address</p> <span>Valid Email required</span>
           </div>
-          <form action="" onSubmit={handleSubmitForm}>
+          <form onSubmit={handleSubmitForm}>
             <label htmlFor="email" className="block"></label>
             <input
               className="border border-grey w-full p-2 my-2 rounded-md opacity-65"
